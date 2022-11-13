@@ -1,4 +1,5 @@
 import 'package:aust_textile_alumni/app/modules/live_stream/live_stream_view.dart';
+import 'package:aust_textile_alumni/draft.dart';
 import 'package:get/get.dart';
 
 import 'package:aust_textile_alumni/app/modules/alumni_book/bindings/alumni_book_binding.dart';
@@ -31,7 +32,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LIVESTREAM;
+  static const INITIAL = Routes.DRAFTPAGE;
 
   static final routes = [
     GetPage(
@@ -97,6 +98,10 @@ class AppPages {
     GetPage(
       name: _Paths.LIVESTREAM,
       page: () => LiveStreamView(),
+    ),
+    GetPage(
+      name: _Paths.DRAFTPAGE,
+      page: () => Draftpage(),
     ),
   ];
 }

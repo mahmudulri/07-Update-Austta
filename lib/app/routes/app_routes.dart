@@ -18,6 +18,7 @@ abstract class Routes {
   static const EVENT = _Paths.EVENT;
   static const LIVESTREAM = _Paths.LIVESTREAM;
   static const DRAFTPAGE = _Paths.DRAFTPAGE;
+  static const USER_PROFILE = _Paths.USER_PROFILE;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const EVENT = '/event';
   static const LIVESTREAM = '/live-stream';
   static const DRAFTPAGE = '/draft-page';
+  static const USER_PROFILE = '/user-profile';
 }

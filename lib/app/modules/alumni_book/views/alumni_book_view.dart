@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -37,82 +36,50 @@ class _AlumniBookViewState extends State<AlumniBookView> {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
 
-    return SafeArea(
+    return DefaultTabController(
+      length: 2,
       child: Scaffold(
           backgroundColor: Colors.grey.withOpacity(0.1),
+          appBar: AppBar(
+            elevation: 0.0,
+            centerTitle: true,
+            backgroundColor: Color(0xffE5E5E5),
+            leading: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            title: Text(
+              "Alumni",
+              style: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  fontSize: screenHeight * 0.020,
+                  color: Color(0xff0FA958),
+                ),
+              ),
+            ),
+            bottom: PreferredSize(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Container(
+                  color: Color(0xff00602B),
+                  height: 2.0,
+                ),
+              ),
+              preferredSize: Size.fromHeight(4.0),
+            ),
+          ),
           body: Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  color: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: screenHeight * 0.025,
-                            top: screenHeight * 0.035),
-                        child: Image.asset('assets/images/back_arrow.png'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: screenHeight * 0.17,
-                            top: screenHeight * 0.035),
-                        child: customTitleText("Alumni", screenHeight * 0.020),
-                      )
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: screenHeight * 0.030, right: screenHeight * 0.030),
-                  child: Divider(
-                    color: titleTextColor,
-                    thickness: 1.0,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: screenHeight * 0.019, top: screenHeight * 0.025),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Alumni',
-                        style: TextStyle(
-                          shadows: [
-                            Shadow(color: Colors.black, offset: Offset(0, -5))
-                          ],
-                          color: Colors.transparent,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.black,
-                          decorationThickness: 4,
-                        ),
-                      ),
-                      SizedBox(
-                        width: screenWidth * 0.015,
-                      ),
-                      Text(
-                        'Stuff',
-                        style: TextStyle(
-                          shadows: [
-                            Shadow(color: Colors.black, offset: Offset(0, -5))
-                          ],
-                          color: Colors.transparent,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Colors.black,
-                          decorationThickness: 4,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
                 SizedBox(
                   height: screenHeight * 0.020,
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: screenHeight * 0.023, right: screenHeight * 0.023),
+                    left: screenHeight * 0.023,
+                    right: screenHeight * 0.023,
+                  ),
                   child: Container(
                     height: screenHeight * 0.08,
                     width: double.infinity,
@@ -155,13 +122,12 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                               ),
                             ),
                           ),
-                         ),
+                        ),
                         Expanded(
                             flex: 1,
                             child: Padding(
-                              padding: EdgeInsets.only(
-                                left: screenHeight * 0.015
-                              ),
+                              padding:
+                                  EdgeInsets.only(left: screenHeight * 0.015),
                               child: Icon(
                                 Icons.close_sharp,
                                 color: Colors.grey,
@@ -205,8 +171,7 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                                               'Filter your search',
                                               style: GoogleFonts.poppins(
                                                 color: Colors.white,
-                                                fontSize:
-                                                    screenHeight * 0.027,
+                                                fontSize: screenHeight * 0.027,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
@@ -242,46 +207,41 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                                               // width: double.infinity,
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        10.0),
+                                                    BorderRadius.circular(10.0),
                                                 color: Colors.white,
                                               ),
                                               child: Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: screenHeight *
-                                                          0.019,
-                                                      right: screenHeight *
-                                                          0.019),
+                                                      left:
+                                                          screenHeight * 0.019,
+                                                      right:
+                                                          screenHeight * 0.019),
                                                   child: Obx(
-                                                    () => DropdownButton<
-                                                        String>(
+                                                    () =>
+                                                        DropdownButton<String>(
                                                       hint: Text(
                                                         "Select Quantity",
                                                         style: TextStyle(
-                                                            color:
-                                                                Colors.grey),
+                                                            color: Colors.grey),
                                                       ),
-                                                      value:
-                                                          selectPiece.value,
+                                                      value: selectPiece.value,
                                                       icon: Padding(
                                                         padding: EdgeInsets.only(
-                                                            top:
-                                                                screenHeight *
-                                                                    0.010),
+                                                            top: screenHeight *
+                                                                0.010),
                                                         child: Image.asset(
                                                             'assets/images/arrow_down.png'),
                                                       ),
                                                       iconSize: 20,
                                                       isExpanded: true,
                                                       underline: SizedBox(),
-                                                      onChanged:
-                                                          (chosenValue) {
+                                                      onChanged: (chosenValue) {
                                                         selectPiece.value =
                                                             chosenValue
                                                                 .toString();
                                                       },
-                                                      items: quantityPiece.map(
-                                                          (quantityValue) {
+                                                      items: quantityPiece
+                                                          .map((quantityValue) {
                                                         return DropdownMenuItem(
                                                             value:
                                                                 quantityValue,
@@ -299,46 +259,41 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                                               // width: double.infinity,
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        10.0),
+                                                    BorderRadius.circular(10.0),
                                                 color: Colors.white,
                                               ),
                                               child: Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: screenHeight *
-                                                          0.019,
-                                                      right: screenHeight *
-                                                          0.019),
+                                                      left:
+                                                          screenHeight * 0.019,
+                                                      right:
+                                                          screenHeight * 0.019),
                                                   child: Obx(
-                                                    () => DropdownButton<
-                                                        String>(
+                                                    () =>
+                                                        DropdownButton<String>(
                                                       hint: Text(
                                                         "Select Quantity",
                                                         style: TextStyle(
-                                                            color:
-                                                                Colors.grey),
+                                                            color: Colors.grey),
                                                       ),
-                                                      value:
-                                                          selectPiece.value,
+                                                      value: selectPiece.value,
                                                       icon: Padding(
                                                         padding: EdgeInsets.only(
-                                                            top:
-                                                                screenHeight *
-                                                                    0.010),
+                                                            top: screenHeight *
+                                                                0.010),
                                                         child: Image.asset(
                                                             'assets/images/arrow_down.png'),
                                                       ),
                                                       iconSize: 20,
                                                       isExpanded: true,
                                                       underline: SizedBox(),
-                                                      onChanged:
-                                                          (chosenValue) {
+                                                      onChanged: (chosenValue) {
                                                         selectPiece.value =
                                                             chosenValue
                                                                 .toString();
                                                       },
-                                                      items: quantityPiece.map(
-                                                          (quantityValue) {
+                                                      items: quantityPiece
+                                                          .map((quantityValue) {
                                                         return DropdownMenuItem(
                                                             value:
                                                                 quantityValue,
@@ -356,46 +311,41 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                                               // width: double.infinity,
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        10.0),
+                                                    BorderRadius.circular(10.0),
                                                 color: Colors.white,
                                               ),
                                               child: Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: screenHeight *
-                                                          0.019,
-                                                      right: screenHeight *
-                                                          0.019),
+                                                      left:
+                                                          screenHeight * 0.019,
+                                                      right:
+                                                          screenHeight * 0.019),
                                                   child: Obx(
-                                                    () => DropdownButton<
-                                                        String>(
+                                                    () =>
+                                                        DropdownButton<String>(
                                                       hint: Text(
                                                         "Select Quantity",
                                                         style: TextStyle(
-                                                            color:
-                                                                Colors.grey),
+                                                            color: Colors.grey),
                                                       ),
-                                                      value:
-                                                          selectPiece.value,
+                                                      value: selectPiece.value,
                                                       icon: Padding(
                                                         padding: EdgeInsets.only(
-                                                            top:
-                                                                screenHeight *
-                                                                    0.010),
+                                                            top: screenHeight *
+                                                                0.010),
                                                         child: Image.asset(
                                                             'assets/images/arrow_down.png'),
                                                       ),
                                                       iconSize: 20,
                                                       isExpanded: true,
                                                       underline: SizedBox(),
-                                                      onChanged:
-                                                          (chosenValue) {
+                                                      onChanged: (chosenValue) {
                                                         selectPiece.value =
                                                             chosenValue
                                                                 .toString();
                                                       },
-                                                      items: quantityPiece.map(
-                                                          (quantityValue) {
+                                                      items: quantityPiece
+                                                          .map((quantityValue) {
                                                         return DropdownMenuItem(
                                                             value:
                                                                 quantityValue,
@@ -413,46 +363,41 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                                               // width: double.infinity,
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(
-                                                        10.0),
+                                                    BorderRadius.circular(10.0),
                                                 color: Colors.white,
                                               ),
                                               child: Padding(
                                                   padding: EdgeInsets.only(
-                                                      left: screenHeight *
-                                                          0.019,
-                                                      right: screenHeight *
-                                                          0.019),
+                                                      left:
+                                                          screenHeight * 0.019,
+                                                      right:
+                                                          screenHeight * 0.019),
                                                   child: Obx(
-                                                    () => DropdownButton<
-                                                        String>(
+                                                    () =>
+                                                        DropdownButton<String>(
                                                       hint: Text(
                                                         "Select Quantity",
                                                         style: TextStyle(
-                                                            color:
-                                                                Colors.grey),
+                                                            color: Colors.grey),
                                                       ),
-                                                      value:
-                                                          selectPiece.value,
+                                                      value: selectPiece.value,
                                                       icon: Padding(
                                                         padding: EdgeInsets.only(
-                                                            top:
-                                                                screenHeight *
-                                                                    0.010),
+                                                            top: screenHeight *
+                                                                0.010),
                                                         child: Image.asset(
                                                             'assets/images/arrow_down.png'),
                                                       ),
                                                       iconSize: 20,
                                                       isExpanded: true,
                                                       underline: SizedBox(),
-                                                      onChanged:
-                                                          (chosenValue) {
+                                                      onChanged: (chosenValue) {
                                                         selectPiece.value =
                                                             chosenValue
                                                                 .toString();
                                                       },
-                                                      items: quantityPiece.map(
-                                                          (quantityValue) {
+                                                      items: quantityPiece
+                                                          .map((quantityValue) {
                                                         return DropdownMenuItem(
                                                             value:
                                                                 quantityValue,
@@ -464,20 +409,18 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                                             ),
                                             Spacer(),
                                             Align(
-                                              alignment:
-                                                  Alignment.bottomCenter,
+                                              alignment: Alignment.bottomCenter,
                                               child: ElevatedButton(
                                                 style: ButtonStyle(
                                                     backgroundColor:
                                                         MaterialStateProperty
-                                                            .all(
-                                                                Colors.white),
+                                                            .all(Colors.white),
                                                     shape: MaterialStateProperty
                                                         .all(
                                                             RoundedRectangleBorder(
                                                       borderRadius:
-                                                          BorderRadius
-                                                              .circular(08.0),
+                                                          BorderRadius.circular(
+                                                              08.0),
                                                     ))),
                                                 onPressed: () {},
                                                 child: Center(
@@ -527,10 +470,63 @@ class _AlumniBookViewState extends State<AlumniBookView> {
                     style: TextStyle(color: Colors.black),
                   ),
                 ),
-                SizedBox(
-                  height: screenHeight * 0.020,
+                // SizedBox(
+                //   height: screenHeight * 0.020,
+                // ),
+
+                // Tabbar started
+
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    height: screenHeight * 0.050,
+                    child: TabBar(
+                      // indicatorColor: Colors.transparent,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      indicator: UnderlineTabIndicator(
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Color(0xFF000000),
+                        ),
+                        insets: EdgeInsets.symmetric(horizontal: 0),
+                      ),
+                      isScrollable: true,
+                      labelColor: Colors.black,
+                      tabs: [
+                        Text(
+                          "Alumnai",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              color: Color(0xff333333),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Stuffs",
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                              color: Color(0xff333333),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                Expanded(child: AlumniList('alumni_book'))
+                SizedBox(
+                  height: screenHeight * 0.010,
+                ),
+
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      AlumniList('alumni_book'),
+                      AlumniList('alumni_book'),
+                    ],
+                  ),
+                ),
+
+                // Expanded(child: AlumniList('alumni_book'))
               ],
             ),
           )),

@@ -19,6 +19,7 @@ abstract class Routes {
   static const LIVESTREAM = _Paths.LIVESTREAM;
   static const DRAFTPAGE = _Paths.DRAFTPAGE;
   static const USER_PROFILE = _Paths.USER_PROFILE;
+  static const NOTIFICATION = _Paths.NOTIFICATION;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const LIVESTREAM = '/live-stream';
   static const DRAFTPAGE = '/draft-page';
   static const USER_PROFILE = '/user-profile';
+  static const NOTIFICATION = '/notification';
 }

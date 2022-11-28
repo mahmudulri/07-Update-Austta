@@ -11,14 +11,17 @@ class NotificatonView extends StatelessWidget {
     var screenHeigth = MediaQuery.of(context).size.height;
     String longText =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ut scelerisque dui purus sit amet sem.";
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.bottom]);
-    return Scaffold(
-        backgroundColor: Color(0xffE5E5E5),
-        body: Column(
-          children: [
-            Container(
-              height: screenHeigth * 0.120,
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+    //     overlays: [SystemUiOverlay.bottom]);
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Color(0xffff00602B)));
+
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            toolbarHeight: screenHeigth * 0.100,
+            flexibleSpace: Container(
+              // height: screenHeigth * 0.120,
               width: double.infinity,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -30,15 +33,11 @@ class NotificatonView extends StatelessWidget {
                   ],
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 20,
-                  left: 20,
-                  right: 20,
-                ),
-                child: Column(
-                  children: [
-                    Row(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
@@ -53,41 +52,47 @@ class NotificatonView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Text(
-                      "Notifications",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: screenWidth * 0.030,
-                          color: Color(0xffFFFFFF),
-                        ),
+                  ),
+                  Text(
+                    "Notifications",
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: screenWidth * 0.035,
+                        color: Color(0xffFFFFFF),
                       ),
                     ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+            elevation: 0.0,
+          ),
+          backgroundColor: Color(0xffE5E5E5),
+          body: Column(
+            children: [
+              SizedBox(
+                height: screenHeigth * 0.020,
+              ),
+              Expanded(
+                child: ListView.separated(
+                  physics: BouncingScrollPhysics(),
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: screenHeigth * 0.005,
+                    );
+                  },
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return notification_box(
+                      screenWidth: screenWidth,
+                      longText: longText,
+                    );
+                  },
                 ),
               ),
-            ),
-            SizedBox(
-              height: screenHeigth * 0.020,
-            ),
-            Expanded(
-              child: ListView.separated(
-                physics: BouncingScrollPhysics(),
-                separatorBuilder: (context, index) {
-                  return SizedBox(
-                    height: screenHeigth * 0.010,
-                  );
-                },
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return notification_box(
-                    screenWidth: screenWidth,
-                    longText: longText,
-                  );
-                },
-              ),
-            ),
-          ],
-        ));
+            ],
+          )),
+    );
   }
 }
 
@@ -128,13 +133,13 @@ class notification_box extends StatelessWidget {
                     Icon(
                       Icons.calendar_month,
                       color: Color(0xff777777),
-                      size: screenWidth * 0.040,
+                      size: screenWidth * 0.030,
                     ),
                     Text(
                       '24 Feb 2020',
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: screenWidth * 0.030,
+                          fontSize: screenWidth * 0.025,
                           color: Color(0xff777777),
                         ),
                       ),
@@ -147,7 +152,7 @@ class notification_box extends StatelessWidget {
                       '10.12 AM',
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: screenWidth * 0.030,
+                          fontSize: screenWidth * 0.025,
                           color: Color(0xff777777),
                         ),
                       ),

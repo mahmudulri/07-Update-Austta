@@ -1,4 +1,5 @@
 import 'package:aust_textile_alumni/app/modules/live_stream/live_stream_view.dart';
+import 'package:aust_textile_alumni/app/modules/notification/views/notification_details.dart';
 import 'package:aust_textile_alumni/app/modules/notification/views/notification_view.dart';
 import 'package:aust_textile_alumni/app/modules/user_profile/views/user_profile.dart';
 import 'package:aust_textile_alumni/draft.dart';
@@ -34,7 +35,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.NOTIFICATION;
+  static const INITIAL = Routes.NOTIFICATION_DETAILS;
 
   static final routes = [
     GetPage(
@@ -112,6 +113,10 @@ class AppPages {
     GetPage(
       name: _Paths.NOTIFICATION,
       page: () => NotificatonView(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION_DETAILS,
+      page: () => NotificatonDetails(),
     ),
   ];
 }

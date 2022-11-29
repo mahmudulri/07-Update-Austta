@@ -20,6 +20,7 @@ abstract class Routes {
   static const DRAFTPAGE = _Paths.DRAFTPAGE;
   static const USER_PROFILE = _Paths.USER_PROFILE;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const NOTIFICATION_DETAILS = _Paths.NOTIFICATION_DETAILS;
 }
 
 abstract class _Paths {
@@ -39,4 +40,5 @@ abstract class _Paths {
   static const DRAFTPAGE = '/draft-page';
   static const USER_PROFILE = '/user-profile';
   static const NOTIFICATION = '/notification';
+  static const NOTIFICATION_DETAILS = '/notification-details';
 }

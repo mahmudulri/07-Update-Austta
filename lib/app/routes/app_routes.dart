@@ -21,6 +21,7 @@ abstract class Routes {
   static const USER_PROFILE = _Paths.USER_PROFILE;
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const NOTIFICATION_DETAILS = _Paths.NOTIFICATION_DETAILS;
+  static const MY_TRANSACTIONS = _Paths.MY_TRANSACTIONS;
 }
 
 abstract class _Paths {
@@ -41,4 +42,5 @@ abstract class _Paths {
   static const USER_PROFILE = '/user-profile';
   static const NOTIFICATION = '/notification';
   static const NOTIFICATION_DETAILS = '/notification-details';
+  static const MY_TRANSACTIONS = '/my-transaction';
 }

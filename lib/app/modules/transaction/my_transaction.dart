@@ -85,7 +85,7 @@ class MyTransaction extends StatelessWidget {
                       Expanded(
                         child: ListView.builder(
                           physics: BouncingScrollPhysics(),
-                          itemCount: 20,
+                          itemCount: 2,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.only(
@@ -124,9 +124,17 @@ class MyTransaction extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text("#80234"),
-                                                    Spacer(),
+                                                    Text(
+                                                      "Transaction by",
+                                                      style: TextStyle(
+                                                        fontSize: 10,
+                                                      ),
+                                                    ),
                                                     Container(
                                                       child: Row(
                                                         children: [
@@ -180,6 +188,9 @@ class MyTransaction extends StatelessWidget {
                                                   thickness: 1,
                                                 ),
                                                 Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "1000 USD",
@@ -188,12 +199,11 @@ class MyTransaction extends StatelessWidget {
                                                       ),
                                                     ),
                                                     Text(
-                                                      "Transaction using visa card",
+                                                      "Visa Card",
                                                       style: TextStyle(
                                                         fontSize: 10,
                                                       ),
                                                     ),
-                                                    Spacer(),
                                                     Padding(
                                                       padding:
                                                           const EdgeInsets.only(
@@ -236,7 +246,7 @@ class MyTransaction extends StatelessWidget {
                             );
                           },
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -244,7 +254,7 @@ class MyTransaction extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Container(
-                  color: Colors.blue.shade100,
+                  // color: Color(0xffF9F9F9),
                   child: Column(
                     children: [
                       Padding(
@@ -255,6 +265,21 @@ class MyTransaction extends StatelessWidget {
                         child: Row(
                           children: [
                             Text("Transaction History"),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                          left: 20,
+                        ),
+                        child: Row(
+                          children: [
+                            Text("< January >"),
+                            SizedBox(
+                              width: screenWidth * 0.050,
+                            ),
+                            Text("< 2021 >"),
                           ],
                         ),
                       ),
@@ -271,16 +296,158 @@ class MyTransaction extends StatelessWidget {
                                 bottom: 10,
                               ),
                               child: Container(
-                                height: 80,
-                                width: screenWidth,
-                                decoration: BoxDecoration(
-                                  color: Colors.blueAccent,
-                                ),
-                              ),
+                                  height: 80,
+                                  width: screenWidth,
+                                  decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    color: Color(0xffF9F9F9),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            child: Icon(
+                                              Icons.copy,
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 9,
+                                          child: Container(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text("#80234"),
+                                                    Text(
+                                                      "Transaction by",
+                                                      style: TextStyle(
+                                                        fontSize: 10,
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      child: Row(
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .calendar_month,
+                                                            color: Color(
+                                                                0xff777777),
+                                                            size: screenWidth *
+                                                                0.030,
+                                                          ),
+                                                          Text(
+                                                            '24 Feb 2020',
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                              textStyle:
+                                                                  TextStyle(
+                                                                fontSize:
+                                                                    screenWidth *
+                                                                        0.025,
+                                                                color: Color(
+                                                                    0xff777777),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            width: 5,
+                                                          ),
+                                                          Text(
+                                                            '10.12 AM',
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                              textStyle:
+                                                                  TextStyle(
+                                                                fontSize:
+                                                                    screenWidth *
+                                                                        0.025,
+                                                                color: Color(
+                                                                    0xff777777),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Divider(
+                                                  color: Colors.black,
+                                                  height: 2,
+                                                  thickness: 1,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      "1000 USD",
+                                                      style: TextStyle(
+                                                        fontSize: 10,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      "Visa Card",
+                                                      style: TextStyle(
+                                                        fontSize: 10,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                        top: 5,
+                                                      ),
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          5)),
+                                                          color: Colors.black,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(5.0),
+                                                          child: Text(
+                                                            "membership fee",
+                                                            style: TextStyle(
+                                                              fontSize: 10,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
                             );
                           },
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
